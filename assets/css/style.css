@@ -47,10 +47,11 @@
 
   --font-size-heading: calc(var(--font-size) * 2);
   --font-size-subheading: calc(var(--font-size) * 1.25);
-  --font-size-caption: calc(var(--font-size) * 0.875);
+  --font-size-caption: calc(var(--font-size) * 0.6125);
 
-  --margin-xs: calc(var(--margin) * 0.5);
+  --margin-xs: calc(var(--margin) * 0.4);
   --margin-s: calc(var(--margin) * 1);
+  --margin-sm: calc(var(--margin) * 1.5);
   --margin-m: calc(var(--margin) * 2);
   --margin-l: calc(var(--margin) * 3);
   --margin-xl: calc(var(--margin) * 5);
@@ -95,13 +96,22 @@ h1{
     4vw,
     calc(var(--font-size-heading) * 1.25)
   );
-    transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  width: 60vw;
+}
+
+h3{
+    transform: rotate(2deg);
+}
+
+figcaption{
+  font-size: var(--font-size-caption);
 }
 
 
-p{
-  /* paragraph style */
-}
+/* p{
+   paragraph style 
+} */
 
 
 strong{
@@ -110,8 +120,12 @@ strong{
 }
 
 em{
-  font-size: calc(var(--font-size) * 0.75);
+  font-size: var(--font-size-caption);
   font-style: normal;
+}
+
+hr{
+  opacity: 10%;
 }
 
 
@@ -121,25 +135,48 @@ em{
 
 div.page-wrapper {
   /* the element that 'wraps' everything */
-  padding: var(--margin-xl);
-  padding-top: var(--margin-s);
-  padding-bottom: var(--margin-s);
+  padding: var(--margin-s);
+  padding-left: var(--margin-l);
+  padding-right: var(--margin-s);
 }
+
+header{
+  padding-right: var(--margin-l);
+}
+
+main{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: var(--margin-m);
+}
+
+.essay{
+  grid-column-start: 1;
+  grid-column: span 2;
+}
+
+.sources{
+  grid-column-start: 3;
+}
+.sources-box{
+  position: sticky;
+  top: var(--margin-s);
+  /* max-height: 100vh; */
+}
+
 
 /* navigation */
  
-nav{
+/* nav{
   
-}
+} */
+
 
 /* content */
 
-main{
- 
-}
-
 summary{
   transform: rotate(1deg);
+  margin-top: var(--margin-sm);
   cursor: pointer;
 }
 
@@ -147,6 +184,32 @@ summary::marker {
   content: "";
 }
 
+details[open] {
+    summary{
+      transform: rotate(-1deg);
+    }
+}
+
+ul{
+  padding: 0;
+}
+
+li{
+  transform: rotate(-1deg);
+  margin-bottom: var(--margin-xs);
+}
+
+li::marker {
+  content: "";
+}
+
+.source-txt{
+  font-size: var(--font-size-caption);
+}
+
+details.sources-box[open] {
+    background-color: lightgray;
+}
 
 .q-arch{
   color: #990000;
@@ -194,11 +257,13 @@ summary::marker {
 }
 
 
-
 #collage-h{
   background-color: pink;
   text-align: center;
-  width: 60vw;
+}
+
+#edit-date{
+  opacity: 10%;
 }
 
 
