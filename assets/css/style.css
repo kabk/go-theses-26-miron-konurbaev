@@ -95,35 +95,14 @@ h1{
     4vw,
     calc(var(--font-size-heading) * 1.25)
   );
+    transform: rotate(-3deg);
 }
 
-h2{
-  /* h2 style */
-}
-
-h3{
-  /* h3 style */
-}
-
-h4, h5, h6{
-  /* h4-h5-h6 style */
-}
 
 p{
   /* paragraph style */
 }
 
-ol, ul{
-  /* ordered list and unordered list styles */
-}
-
-blockquote{
-  /* blockquote element style */
-}
-
-hr{
-  /* horizontal rule style */
-}
 
 strong{
   font-style: italic;
@@ -142,7 +121,9 @@ em{
 
 div.page-wrapper {
   /* the element that 'wraps' everything */
-  padding: var(--margin-m);
+  padding: var(--margin-xl);
+  padding-top: var(--margin-s);
+  padding-bottom: var(--margin-s);
 }
 
 /* navigation */
@@ -158,24 +139,66 @@ main{
 }
 
 summary{
-  
+  transform: rotate(1deg);
+  cursor: pointer;
 }
 
-.poem{
-  font-style: italic;
-  text-align: right;
-  padding-right: var(--margin-s);
-  color: #8e7cc3;
+summary::marker { 
+  content: "";
 }
 
-.quote{
-  margin-left: var(--margin-m);
+
+.q-arch{
+  color: #990000;
+  background-color: #f4cccc;
+}
+.q-auke{
+  color: #bf9000;
+  background-color: #fff2cc;
+}
+.q-copy{
+  color: #0b5394;
+  background-color: #cfe2f3;
+}
+.q-dan{
+  color: #b45f06;
+  background-color: #fce5cd;
+}
+.q-grun{
+  color: #38761d;
+  background-color: #d9ead3;
+}
+.q-julia{
+  color: #1155cc;
+  background-color: #c9daf8;
+}
+.q-lara{
+  color: #741b47;
+  background-color: #ead1dc;
+}
+.q-ludo{
+  color: #85200c;
+  background-color: #e6b8af;
+}
+.q-mosh{
+  color: #6e1c75;
+  background-color: #e2cde7;
+}
+.q-oak{
+  color: #134f5c;
+  background-color: #d0e0e3;
+}
+.q-paul{
   color: #351c75;
   background-color: #e6dff7;
 }
 
+
+
 #collage-h{
-  background-color: aqua;
+  background-color: pink;
+  text-align: center;
+  width: 60vw;
 }
 
 
