@@ -155,14 +155,23 @@ main{
   grid-column: span 2;
 }
 
+img{
+  grid-column-start: 2;
+  max-width: 30vw;
+}
+
 .sources{
   grid-column-start: 3;
 }
 .sources-box{
   position: sticky;
   top: var(--margin-s);
-  /* max-height: 100vh; */
 }
+  details.sources-box{
+    max-height: calc(100svh - 2rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 
 
 /* navigation */
@@ -174,10 +183,22 @@ main{
 
 /* content */
 
+.hellip{
+    opacity: 20%;
+}
+
 summary{
   transform: rotate(1deg);
   margin-top: var(--margin-sm);
   cursor: pointer;
+  transition: transform 50ms ease-in-out 0ms;
+}
+
+summary:hover{
+  transform: scale(1.02);
+  span.hellip{
+      opacity: 100;
+    }
 }
 
 summary::marker { 
@@ -187,6 +208,9 @@ summary::marker {
 details[open] {
     summary{
       transform: rotate(-1deg);
+    }
+    span.hellip{
+      display: none;
     }
 }
 
@@ -212,50 +236,83 @@ details.sources-box[open] {
 }
 
 .q-arch{
-  color: #990000;
-  background-color: #f4cccc;
+  color: #0c696e;
+  background-color: #ceebee;
 }
 .q-auke{
-  color: #bf9000;
-  background-color: #fff2cc;
+  color: #9f313e;
+  background-color: #fbdce0;
 }
 .q-copy{
-  color: #0b5394;
-  background-color: #cfe2f3;
+  color: #26649a;
+  background-color: #d4e5f6;
 }
 .q-dan{
-  color: #b45f06;
-  background-color: #fce5cd;
+  color: #9c4070;
+  background-color: #fbe8f3;
 }
 .q-grun{
-  color: #38761d;
+  color: #356f1b;
   background-color: #d9ead3;
 }
 .q-julia{
   color: #1155cc;
-  background-color: #c9daf8;
+  background-color: #ddeaff;
 }
 .q-lara{
-  color: #741b47;
-  background-color: #ead1dc;
+  color: #7b8033;
+  background-color: #f4f7d1;
 }
 .q-ludo{
-  color: #85200c;
-  background-color: #e6b8af;
+  color: #168752;
+  background-color: #ddf6e7;
 }
 .q-mosh{
+  color: #a26f38;
+  background-color: #f7e5bf;
+}
+.q-oak{
+  color: #a64b23;
+  background-color: #fcdad0;
+}
+.q-paul{
   color: #6e1c75;
   background-color: #e2cde7;
 }
-.q-oak{
-  color: #134f5c;
-  background-color: #d0e0e3;
-}
-.q-paul{
-  color: #351c75;
-  background-color: #e6dff7;
-}
 
+.r-arch{
+  color: #0c696e;
+}
+.r-auke{
+  color: #9f313e;
+}
+.r-copy{
+  color: #26649a;
+}
+.r-dan{
+  color: #9c4070;
+}
+.r-grun{
+  color: #356f1b;
+}
+.r-julia{
+  color: #1155cc;
+}
+.r-lara{
+  color: #7b8033;
+}
+.r-ludo{
+  color: #168752;
+}
+.r-mosh{
+  color: #a26f38;
+}
+.r-oak{
+  color: #a64b23;
+}
+.r-paul{
+  color: #6e1c75;
+}
 
 #collage-h{
   background-color: pink;
@@ -302,7 +359,19 @@ details.sources-box[open] {
 
   /* your 'mobile' overriding css properties here */
 
+  .sources{
+    position:fixed;
+    top: var(--margin-s);
+    left:0;
+    width: 80%;
+    margin-left:10%;
+  }
 
+  details.sources-box{
+    max-height: calc(100svh - 2rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 
   /* utility classes, mobile */
 
