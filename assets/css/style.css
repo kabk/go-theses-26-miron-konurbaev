@@ -1,14 +1,7 @@
 @charset "UTF-8";
 
 
-
-/* @FONT FACE (enable the use of 'custom fonts' inside your document) */
-
-/* 
-  You can use 'fontsquirrel' (https://www.fontsquirrel.com) 
-  or 'transfonter' (https://transfonter.org)
-  to generate your own font for the web from .ttf or .oft files 
-*/
+/* FONTS */
 
 @font-face {
     font-family: 'Literata';
@@ -17,7 +10,6 @@
     font-style: normal;
     font-display: block;
 }
-
 @font-face {
     font-family: 'Literata';
     src: url('../fonts/literata/literata-italic-variablefont_opszwght-webfont.woff2');
@@ -25,7 +17,6 @@
     font-style: italic;
     font-display: block;
 }
-
 
 
 /* VARIABLES */
@@ -47,9 +38,7 @@
   --margin-m: calc(var(--margin) * 2);
   --margin-l: calc(var(--margin) * 3);
   --margin-xl: calc(var(--margin) * 5);
-
 }
-
 
 
 /* GENERAL STYLES */
@@ -74,16 +63,13 @@ a {
   color: #666666;
   text-decoration: underline;
 }
-
 a:hover {
   opacity: 50%;
   text-decoration: underline;
 }
-
 a.link-no-und{
   text-decoration: none;
 }
-
 
 h1{
   font-size: clamp(
@@ -109,7 +95,6 @@ h3{
   color: #434343;
 }
 
-
 strong{
   font-style: italic;
   font-weight: normal;
@@ -129,9 +114,17 @@ img{
   transform: rotate(12deg);
 }
 
+summary::marker { 
+  display: none;
+  content: "";
+}
+::-webkit-details-marker{
+  display: none;
+  content: "";
+}
+
 
 /* PAGE STYLES */
-
 /* page structure */
 
 div.page-wrapper {
@@ -149,6 +142,40 @@ main{
 .essay{
   grid-column-start: 1;
   grid-column: span 2;
+}
+
+.intro-body{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: var(--margin-m);
+  margin-bottom: var(--margin-m);
+}
+.intro-head{
+  grid-column-start: 1;
+  grid-column: span 2;
+  max-width: 60vw;
+  display: flex;
+  flex-direction: column;
+}
+.intro-txt{
+  grid-column-start: 2;
+  padding-right: var(--margin-l);
+  padding-left: var(--margin-m);
+}
+.intro-1{
+  padding-top: var(--margin-m);
+}
+details.intro-body[open] {
+  .intro-head{
+  grid-column-start: 1;
+}
+}
+
+.flex-start{
+  align-self: flex-start;
+}
+.flex-end{
+  align-self: flex-end;
 }
 
 .sources{
@@ -173,47 +200,10 @@ details.sources-box[open]{
 
 
 /* navigation */
- 
 /* nav{} */
 
 
 /* content */
-
-.intro-body{
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-column-gap: var(--margin-m);
-  margin-bottom: var(--margin-m);
-}
-
-.intro-head{
-  grid-column-start: 1;
-  grid-column: span 2;
-  max-width: 60vw;
-  display: flex;
-  flex-direction: column;
-}
-.intro-txt{
-  grid-column-start: 2;
-  padding-right: var(--margin-l);
-  padding-left: var(--margin-m);
-}
-.intro-1{
-  padding-top: var(--margin-m);
-}
-
-details.intro-body[open] {
-  .intro-head{
-  grid-column-start: 1;
-}
-}
-
-.flex-start{
-  align-self: flex-start;
-}
-.flex-end{
-  align-self: flex-end;
-}
 
 .hellip{
     opacity: 20%;
@@ -225,23 +215,12 @@ summary{
   cursor: pointer;
   transition: transform 50ms ease-in-out 0ms;
 }
-
 summary:hover{
   transform: scale(1.02);
   span.hellip{
       opacity: 100;
     }
 }
-
-summary::marker { 
-  display: none;
-  content: "";
-}
-::-webkit-details-marker{
-  display: none;
-  content: "";
-}
-
 details[open] {
     summary{
       transform: rotate(-1deg);
@@ -254,12 +233,10 @@ details[open] {
 ul{
   padding: 0;
 }
-
 li{
   transform: rotate(-1deg);
   margin-bottom: var(--margin-xs);
 }
-
 li::marker {
   content: "";
 }
@@ -268,117 +245,47 @@ li::marker {
   font-size: var(--font-size-caption);
 }
 
-details.sources-box[open] {
-    background-color: #f3f3f3;
-}
+details.sources-box[open] {background-color: #f3f3f3;}
 
-.q-arch{
-  color: #0c696e;
-  background-color: #ceebee;
-}
-.q-auke{
-  color: #9f313e;
-  background-color: #fbdce0;
-}
-.q-copy{
-  color: #26649a;
-  background-color: #d4e5f6;
-}
-.q-dan{
-  color: #9c4070;
-  background-color: #fbe8f3;
-}
-.q-grun{
-  color: #356f1b;
-  background-color: #d9ead3;
-}
-.q-julia{
-  color: #1155cc;
-  background-color: #ddeaff;
-}
-.q-lara{
-  color: #7b8033;
-  background-color: #f4f7d1;
-}
-.q-ludo{
-  color: #168752;
-  background-color: #ddf6e7;
-}
-.q-mosh{
-  color: #a26f38;
-  background-color: #f7e5bf;
-}
-.q-oak{
-  color: #a64b23;
-  background-color: #fcdad0;
-}
-.q-paul{
-  color: #6e1c75;
-  background-color: #e2cde7;
-}
+.q-arch{color: #0c696e; background-color: #ceebee;}
+.q-auke{color: #9f313e; background-color: #fbdce0;}
+.q-copy{color: #26649a; background-color: #d4e5f6;}
+.q-dan{color: #9c4070; background-color: #fbe8f3;}
+.q-grun{color: #356f1b; background-color: #d9ead3;}
+.q-julia{color: #1155cc; background-color: #ddeaff;}
+.q-lara{color: #7b8033; background-color: #f4f7d1;}
+.q-ludo{color: #168752; background-color: #ddf6e7;}
+.q-mosh{color: #a26f38; background-color: #f7e5bf;}
+.q-oak{color: #a64b23; background-color: #fcdad0;}
+.q-paul{color: #6e1c75; background-color: #e2cde7;}
 
-.r-arch{
-  color: #0c696e;
-}
-.r-auke{
-  color: #9f313e;
-}
-.r-copy{
-  color: #26649a;
-}
-.r-dan{
-  color: #9c4070;
-}
-.r-grun{
-  color: #356f1b;
-}
-.r-julia{
-  color: #1155cc;
-}
-.r-lara{
-  color: #7b8033;
-}
-.r-ludo{
-  color: #168752;
-}
-.r-mosh{
-  color: #a26f38;
-}
-.r-oak{
-  color: #a64b23;
-}
-.r-paul{
-  color: #6e1c75;
-}
+.r-arch{color: #0c696e;}
+.r-auke{color: #9f313e;}
+.r-copy{color: #26649a;}
+.r-dan{color: #9c4070;}
+.r-grun{color: #356f1b;}
+.r-julia{color: #1155cc;}
+.r-lara{color: #7b8033;}
+.r-ludo{color: #168752;}
+.r-mosh{color: #a26f38;}
+.r-oak{color: #a64b23;}
+.r-paul{color: #6e1c75;}
 
-.collage-h{
-  background-color: #272727;
-}
-.collage-h3{
-  background-color: #d9d9d9;
-}
+.collage-h{background-color: #272727;}
+.collage-h3{background-color: #d9d9d9;}
 
 .acknows{
   font-size: var(--font-size-caption);
-  color: #666666;
   padding-right: var(--margin-sm);
+  color: #666666;
 }
 
 
 /* UTILITY CLASSES */
-
 /* hide desktop mobile etc */
 
-.desktop-only {
-  display: block;
-}
-
-.mobile-only {
-  display: none;
-}
-
-
-
+.desktop-only {display: block;}
+.mobile-only {display: none;}
 
 
 /* WEBSITE MEDIA QUERIES */
@@ -397,8 +304,7 @@ details.sources-box[open] {
 /* style this one first and then use the subsequent ones in a cascading way (from general to specific) */
 
 @media (max-width: 779px) {
-
-  /* your 'mobile' overriding css properties here */
+  /* 'mobile' overriding css properties here */
 
   div.page-wrapper {
     padding: var(--margin-sm);
@@ -416,14 +322,11 @@ details.sources-box[open] {
     width: 80%;
     margin-left:10%;
   }
-
   details.sources-box{
-    /* max-height: calc(100svh - 2rem); */
     max-height: 40vh;
     overflow-x: hidden;
     overflow-y: auto;
   }
-
     details.sources-box[open]{
     outline: var(--margin-xs) solid var(--color-background);
   }
@@ -444,21 +347,13 @@ details.sources-box[open] {
   }
 
   /* utility classes, mobile */
-
-  .desktop-only{
-    display:none;
-  }
-
-  .mobile-only{
-    display:block;
-  }
+  .desktop-only{display:none;}
+  .mobile-only{display:block;}
 
 }
 
 
-
-/* use this query to apply style changes to smaller smartphones sizes (like an iPhone 5S or SE 2016), max size of 339px */
-
+/* query to apply style changes to smaller smartphones sizes (like an iPhone 5S or SE 2016), max size of 339px */
 @media (max-width: 339px) {
 
   div.page-wrapper {
@@ -472,22 +367,14 @@ details.sources-box[open] {
 }
 
 
-
-/* use this query to apply style changes for 'mobile' screen sizes that are flipped in 'landscape' mode */
-
+/* query to apply style changes for 'mobile' screen sizes that are flipped in 'landscape' mode */
 @media (max-width: 779px) and (orientation: landscape) {
-
-   /* your overriding css properties here */
-
+   /* overriding css properties here */
 }
 
 
-
-/* use this query to apply style for 'small' desktop screens */
-
+/* query to apply style for 'small' desktop screens */
 @media (min-width: 780px) and (max-width: 992px) {
-
-  /* your overriding css properties here */
 
   div.page-wrapper {
     padding-left: var(--margin-m);
