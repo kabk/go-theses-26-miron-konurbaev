@@ -183,7 +183,7 @@ details.sources-box[open]{
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-column-gap: var(--margin-m);
-  margin-bottom: var(--margin-l);
+  margin-bottom: var(--margin-m);
 }
 
 .intro-head{
@@ -195,10 +195,11 @@ details.sources-box[open]{
 }
 .intro-txt{
   grid-column-start: 2;
-  padding-right: var(--margin);
+  padding-right: var(--margin-l);
+  padding-left: var(--margin-m);
 }
 .intro-1{
-  padding-top: var(--margin-l);
+  padding-top: var(--margin-m);
 }
 
 details.intro-body[open] {
@@ -233,10 +234,12 @@ summary:hover{
 }
 
 summary::marker { 
+  display: none;
   content: "";
 }
 ::-webkit-details-marker{
   display: none;
+  content: "";
 }
 
 details[open] {
@@ -381,12 +384,12 @@ details.sources-box[open] {
 /* WEBSITE MEDIA QUERIES */
 
 /* responsive typeface for various breaking points, sets the default 'rem' value */
-@media (max-width: 299px) { :root{--font-size: 16px;} html, body {font: var(--font-size) var(--font-text); } }
-@media (min-width: 299px) and (max-width: 340px) { :root{--font-size: 17px;} html, body {font: var(--font-size) var(--font-text); } }
-@media (min-width: 340px) and (max-width: 440px) { :root{--font-size: 18px;} html, body {font: var(--font-size) var(--font-text); } }
-@media (min-width: 441px) and (max-width: 779px) { :root{--font-size: 17px;} html, body {font: var(--font-size) var(--font-text); } }
-@media (min-width: 780px) and (max-width: 992px) { :root{--font-size: 18px;} html, body {font: var(--font-size) var(--font-text); } }
-@media (min-width: 993px) and (max-width: 1200px) { :root{--font-size: 19px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (max-width: 299px) { :root{--font-size: 14px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 299px) and (max-width: 340px) { :root{--font-size: 15px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 340px) and (max-width: 440px) { :root{--font-size: 16px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 441px) and (max-width: 779px) { :root{--font-size: 16px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 780px) and (max-width: 992px) { :root{--font-size: 17px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 993px) and (max-width: 1200px) { :root{--font-size: 18px;} html, body {font: var(--font-size) var(--font-text); } }
 @media (min-width: 1201px) and (max-width: 1320px) { :root{--font-size: 20px;} html, body {font: var(--font-size) var(--font-text); } }
 @media (min-width: 1321px) { :root{--font-size: 22px;} html, body {font: var(--font-size) var(--font-text); } }
 
@@ -398,7 +401,7 @@ details.sources-box[open] {
   /* your 'mobile' overriding css properties here */
 
   div.page-wrapper {
-    padding: var(--margin-xl);
+    padding: var(--margin-sm);
     padding-top: var(--margin-s);
   }
 
@@ -427,9 +430,14 @@ details.sources-box[open] {
 
   .intro-body{
     display: block;
+    padding-left: var(--margin-s);
   }
   .intro-head{
     max-width: 80vw;
+  }
+  .intro-txt{
+    padding-left: 0;
+    padding-right: var(--margin-sm);
   }
   .intro-1{
     padding-top: 0;
@@ -453,7 +461,13 @@ details.sources-box[open] {
 
 @media (max-width: 339px) {
 
-  /* your overriding css properties here */
+  div.page-wrapper {
+    padding: var(--margin-s);
+    padding-top: 0;
+  }
+  .intro-txt{
+    padding-right: var(--margin-s);
+  }
 
 }
 
