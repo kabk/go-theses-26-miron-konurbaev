@@ -31,23 +31,15 @@
 /* VARIABLES */
 
 :root {
-  /* Color values */
   --color-background: rgba(255,255,255,1);
   --color-text: rgba(0,0,0,1);
-  --color-text-link: rgba(0,0,255,0.8);
-  --color-text-link-hover: rgba(0,0,255,0.4);
-  /* Font values */
   --font-text: 'Literata', 'Helvetica', 'Arial', sans-serif;
-  --font-size: 24px;
-  /* Margin values */
+  --font-size: 22px;
   --margin: 1rem;
 
-
-  /* Examples of possible variables */
-
   --font-size-heading: calc(var(--font-size) * 2);
-  --font-size-subheading: calc(var(--font-size) * 1.25);
-  --font-size-caption: calc(var(--font-size) * 0.6125);
+  --font-size-subheading: calc(var(--font-size) * 1.15);
+  --font-size-caption: calc(var(--font-size) * 0.75);
 
   --margin-xs: calc(var(--margin) * 0.4);
   --margin-s: calc(var(--margin) * 1);
@@ -79,39 +71,43 @@ body {
 }
 
 a {
-  color: var(--color-text-link);
+  color: #666666;
   text-decoration: underline;
 }
 
 a:hover {
-  color: var(--color-text-link-hover);
+  opacity: 50%;
   text-decoration: underline;
+}
+
+a.link-no-und{
+  text-decoration: none;
 }
 
 
 h1{
-  /* h1 style */
   font-size: clamp(
     var(--font-size-heading),
     4vw,
     calc(var(--font-size-heading) * 1.25)
   );
   transform: rotate(-3deg);
-  width: 60vw;
+  padding: var(--margin-xs);
+  text-align: center;
+  color: var(--color-background);
 }
 
 h3{
-    transform: rotate(2deg);
+  font-size: clamp(
+    var(--font-size-subheading),
+    4vw,
+    calc(var(--font-size-subheading) * 1.25)
+  );
+  transform: rotate(2deg);
+  padding: var(--margin-xs);
+  text-align: center;
+  color: #434343;
 }
-
-figcaption{
-  font-size: var(--font-size-caption);
-}
-
-
-/* p{
-   paragraph style 
-} */
 
 
 strong{
@@ -128,20 +124,20 @@ hr{
   opacity: 10%;
 }
 
+img{
+  height: var(--font-size-subheading);
+  transform: rotate(12deg);
+}
+
 
 /* PAGE STYLES */
 
 /* page structure */
 
 div.page-wrapper {
-  /* the element that 'wraps' everything */
   padding: var(--margin-s);
   padding-left: var(--margin-l);
   padding-right: var(--margin-s);
-}
-
-header{
-  padding-right: var(--margin-l);
 }
 
 main{
@@ -155,11 +151,6 @@ main{
   grid-column: span 2;
 }
 
-img{
-  grid-column-start: 2;
-  max-width: 30vw;
-}
-
 .sources{
   grid-column-start: 3;
 }
@@ -167,21 +158,61 @@ img{
   position: sticky;
   top: var(--margin-s);
 }
-  details.sources-box{
-    max-height: calc(100svh - 2rem);
-    overflow-x: hidden;
-    overflow-y: auto;
+details.sources-box{
+  max-height: calc(100svh - 2rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+details.sources-box[open]{
+  summary{
+  position: sticky;
+  top: calc(var(--margin-xs)* -1);
+  z-index: 2;
   }
+}
 
 
 /* navigation */
  
-/* nav{
-  
-} */
+/* nav{} */
 
 
 /* content */
+
+.intro-body{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: var(--margin-m);
+  margin-bottom: var(--margin-l);
+}
+
+.intro-head{
+  grid-column-start: 1;
+  grid-column: span 2;
+  max-width: 60vw;
+  display: flex;
+  flex-direction: column;
+}
+.intro-txt{
+  grid-column-start: 2;
+  padding-right: var(--margin);
+}
+.intro-1{
+  padding-top: var(--margin-l);
+}
+
+details.intro-body[open] {
+  .intro-head{
+  grid-column-start: 1;
+}
+}
+
+.flex-start{
+  align-self: flex-start;
+}
+.flex-end{
+  align-self: flex-end;
+}
 
 .hellip{
     opacity: 20%;
@@ -203,6 +234,9 @@ summary:hover{
 
 summary::marker { 
   content: "";
+}
+::-webkit-details-marker{
+  display: none;
 }
 
 details[open] {
@@ -232,7 +266,7 @@ li::marker {
 }
 
 details.sources-box[open] {
-    background-color: lightgray;
+    background-color: #f3f3f3;
 }
 
 .q-arch{
@@ -314,13 +348,17 @@ details.sources-box[open] {
   color: #6e1c75;
 }
 
-#collage-h{
-  background-color: pink;
-  text-align: center;
+.collage-h{
+  background-color: #272727;
+}
+.collage-h3{
+  background-color: #d9d9d9;
 }
 
-#edit-date{
-  opacity: 10%;
+.acknows{
+  font-size: var(--font-size-caption);
+  color: #666666;
+  padding-right: var(--margin-sm);
 }
 
 
@@ -343,14 +381,14 @@ details.sources-box[open] {
 /* WEBSITE MEDIA QUERIES */
 
 /* responsive typeface for various breaking points, sets the default 'rem' value */
-@media (max-width: 299px) { :root{--font-size: 18px;} html, body {font: var(--font-size) var(--font-text); } }
-@media (min-width: 299px) and (max-width: 340px) { :root{--font-size: 19px;} html, body {font: var(--font-size) var(--font-text); } }
-@media (min-width: 340px) and (max-width: 440px) { :root{--font-size: 20px;} html, body {font: var(--font-size) var(--font-text); } }
-@media (min-width: 441px) and (max-width: 779px) { :root{--font-size: 19px;} html, body {font: var(--font-size) var(--font-text); } }
-@media (min-width: 780px) and (max-width: 992px) { :root{--font-size: 20px;} html, body {font: var(--font-size) var(--font-text); } }
-@media (min-width: 993px) and (max-width: 1200px) { :root{--font-size: 21px;} html, body {font: var(--font-size) var(--font-text); } }
-@media (min-width: 1201px) and (max-width: 1320px) { :root{--font-size: 22px;} html, body {font: var(--font-size) var(--font-text); } }
-@media (min-width: 1321px) { :root{--font-size: 24px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (max-width: 299px) { :root{--font-size: 16px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 299px) and (max-width: 340px) { :root{--font-size: 17px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 340px) and (max-width: 440px) { :root{--font-size: 18px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 441px) and (max-width: 779px) { :root{--font-size: 17px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 780px) and (max-width: 992px) { :root{--font-size: 18px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 993px) and (max-width: 1200px) { :root{--font-size: 19px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 1201px) and (max-width: 1320px) { :root{--font-size: 20px;} html, body {font: var(--font-size) var(--font-text); } }
+@media (min-width: 1321px) { :root{--font-size: 22px;} html, body {font: var(--font-size) var(--font-text); } }
 
 /* styles for 'mobile', screen sizes up to 779px, should covers 'mobile' and 'tablet' */
 /* style this one first and then use the subsequent ones in a cascading way (from general to specific) */
@@ -359,18 +397,42 @@ details.sources-box[open] {
 
   /* your 'mobile' overriding css properties here */
 
+  div.page-wrapper {
+    padding: var(--margin-xl);
+    padding-top: var(--margin-s);
+  }
+
+  main{
+    display: block;
+  }
+
   .sources{
     position:fixed;
-    top: var(--margin-s);
+    bottom: var(--margin-s);
     left:0;
     width: 80%;
     margin-left:10%;
   }
 
   details.sources-box{
-    max-height: calc(100svh - 2rem);
+    /* max-height: calc(100svh - 2rem); */
+    max-height: 40vh;
     overflow-x: hidden;
     overflow-y: auto;
+  }
+
+    details.sources-box[open]{
+    outline: var(--margin-xs) solid var(--color-background);
+  }
+
+  .intro-body{
+    display: block;
+  }
+  .intro-head{
+    max-width: 80vw;
+  }
+  .intro-1{
+    padding-top: 0;
   }
 
   /* utility classes, mobile */
@@ -412,6 +474,13 @@ details.sources-box[open] {
 @media (min-width: 780px) and (max-width: 992px) {
 
   /* your overriding css properties here */
+
+  div.page-wrapper {
+    padding-left: var(--margin-m);
+  }
+  .intro-1{
+    padding-top: var(--margin-sm);
+  }
 
 }
 
