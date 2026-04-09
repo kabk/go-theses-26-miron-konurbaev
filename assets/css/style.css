@@ -359,6 +359,11 @@ details.sources-box[open] {background-color: #f3f3f3;}
     padding-top: 0;
   }
 
+  .bottom-space{
+    height: 20vh;
+    background-color: var(--color-background);
+  }
+
   /* utility classes, mobile */
   .desktop-only{display:none;}
   .mobile-only{display:block;}
