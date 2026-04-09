@@ -114,13 +114,15 @@ img{
   transform: rotate(12deg);
 }
 
-summary::marker { 
+::marker,
+::-webkit-marker,
+::-webkit-details-marker,
+summary::marker,
+summary::-webkit-marker,
+summary::-webkit-details-marker { 
   display: none;
   content: "";
-}
-::-webkit-details-marker{
-  display: none;
-  content: "";
+  content-visibility: hidden;
 }
 
 
