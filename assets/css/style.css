@@ -123,6 +123,9 @@ summary::-webkit-details-marker {
   display: none;
   content: "";
   content-visibility: hidden;
+  visibility: hidden;
+  opacity: 0;
+  color: var(--color-background);
 }
 
 
