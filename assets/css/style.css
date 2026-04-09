@@ -201,6 +201,14 @@ details.sources-box[open]{
   top: calc(var(--margin-xs)* -1);
   z-index: 2;
   }
+  ::marker,
+  ::-webkit-marker,
+  ::-webkit-details-marker,
+  summary::marker,
+  summary::-webkit-marker,
+  summary::-webkit-details-marker { 
+    color: #f3f3f3;
+  }
 }
 
 
