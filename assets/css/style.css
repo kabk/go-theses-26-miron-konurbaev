@@ -328,6 +328,10 @@ details.sources-box[open] {background-color: #f3f3f3;}
     display: block;
   }
 
+  details.intro-body::details-content {
+    content-visibility: visible;
+  }
+
   .sources{
     position:fixed;
     bottom: var(--margin-s);
