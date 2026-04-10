@@ -114,18 +114,19 @@ img{
   transform: rotate(12deg);
 }
 
+summary {
+  list-style: none;
+  -webkit-appearance: none;
+}
 ::marker,
 ::-webkit-marker,
 ::-webkit-details-marker,
 summary::marker,
 summary::-webkit-marker,
 summary::-webkit-details-marker { 
-  display: none;
-  content: "";
-  content-visibility: hidden;
-  visibility: hidden;
-  opacity: 0;
   color: var(--color-background);
+  content: "";
+  display: none;
 }
 
 
